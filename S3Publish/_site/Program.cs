@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.IO;
 using System.Linq;
+using Amazon.S3;
+using Amazon.S3.Model;
 
 namespace S3Publish
 {
@@ -10,7 +13,8 @@ namespace S3Publish
         public static string SiteDir = @"\_site";
         static void Main(string[] args)
         {
-            var path = Directory.GetCurrentDirectory();
+            //var path = Directory.GetCurrentDirectory();
+            var path = @"C:\dev\FunnelWebMigrator\jekyll";
 
             var sitePath = path + SiteDir;
             if (!Directory.Exists(sitePath))
@@ -31,10 +35,6 @@ namespace S3Publish
                 var filesToSync = compareResults.Where(p => p.Status != CompareStatus.Retained).ToList();
                 OutputToConsoleFilesToSync(compareResults);
                 amazonService.SyncModifiedFiles(filesToSync, sitePath);
-                var maxCdnService = new MaxCdnService();
-                Console.WriteLine("Purging Cache");
-                maxCdnService.PurgeCache();
-                Console.WriteLine("Done");
             }
             else
             {

@@ -37,13 +37,9 @@
     <Reference Include="AWSSDK">
       <HintPath>packages\AWSSDK.1.5.32.0\lib\AWSSDK.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.5.0.6\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -56,9 +52,6 @@
     <Compile Include="ContentComparer.cs" />
     <Compile Include="DirectoryBrowser.cs" />
     <Compile Include="LocalFile.cs" />
-    <Compile Include="MaxCdnService.cs" />
-    <Compile Include="NetDna\MaxCdn.cs" />
-    <Compile Include="NetDna\OAuthBase.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
