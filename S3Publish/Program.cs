@@ -33,7 +33,7 @@ namespace S3Publish
                 amazonService.SyncModifiedFiles(filesToSync, sitePath);
                 var maxCdnService = new MaxCdnService();
                 Console.WriteLine("Purging Cache");
-                maxCdnService.PurgeCache();
+                maxCdnService.PurgeFiles(filesToSync.Select(p => p.Key).ToList());
                 Console.WriteLine("Done");
             }
             else
